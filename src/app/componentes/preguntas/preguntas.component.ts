@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Pregunta } from 'src/app/models/pregunta';
+import { PreguntaService } from 'src/app/services/pregunta.service';
 
 @Component({
   selector: 'app-preguntas',
@@ -8,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 export class PreguntasComponent implements OnInit {
 
   public titulo = 'Listado Preguntas';
-  constructor() { }
+  public preguntas: Pregunta[];
+
+  constructor(private service: PreguntaService) { }
 
   ngOnInit(): void {
+    this.service.listar().subscribe(preguntas => this.preguntas=preguntas);
+
   }
 
 }
