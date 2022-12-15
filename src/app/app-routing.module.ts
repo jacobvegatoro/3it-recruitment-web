@@ -7,6 +7,7 @@ const routes: Routes = [
   {path:'', pathMatch: 'full', redirectTo: 'entrevistas'},
   {path:'entrevistas', component: EntrevistasComponent},
   {path:'preguntas', component: PreguntasComponent},
+  {path:'**', pathMatch: 'full', redirectTo: 'preguntas'},
 ];
 
 @NgModule({
