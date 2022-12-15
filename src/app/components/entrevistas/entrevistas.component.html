@@ -1,2 +1,32 @@
-<h1>{{titulo}}</h1>
-<p>entrevistas works!</p>
+<div class="card bg-light mb-3">
+    <div class="card-header">{{titulo}}</div>
+    <div class="card-body">
+        <button class="btn btn-primary my-2" routerLink="/entrevistas/form">crear</button>
+        <table class="table table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>perfilBuscado</th>
+                    <th>comentariosPrueba</th>
+                    <th>comentariosGenerales</th>
+                    <th>recomendaciones</th>
+                    <th>descripcionPersonal</th>
+                    <th>preguntasCandidato</th>
+                    <th>CreateAt</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let entrevista of entrevistas">
+                    <td>{{entrevista.id}}</td>
+                    <td>{{entrevista.perfilBuscado}}</td>
+                    <td>{{entrevista.comentariosPrueba}}</td>
+                    <td>{{entrevista.comentariosGenerales}}</td>
+                    <td>{{entrevista.recomendaciones}}</td>
+                    <td>{{entrevista.descripcionPersonal}</td>
+                    <td>{{entrevista.preguntasCandidato}}</td>
+                    <td>{{entrevista.CreateAt | date: 'yyyy/MM/dd'}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

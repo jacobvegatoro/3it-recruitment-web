@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Entrevista } from '../models/entrevista';
@@ -17,12 +17,19 @@ export class EntrevistaService {
     return this.http.get<Entrevista[]>(this.baseEndpoint);
   }
 
+  public listarPaginas(page: string, size: string): Observable<any>{
+    const params = new HttpParams()
+    .set('page', page)
+    .set('size', size);
+    return this.http.get<any>(`${this.baseEndpoint}/pagina`, {params: params})
+  }
+
   public ver(id: number): Observable<Entrevista>{
     return this.http.get<Entrevista>(`${this.baseEndpoint}/${id}`);
   }
 
   public crear(entrevista:Entrevista): Observable<Entrevista>{
-    return this.http.post<Entrevista>(this.baseEndpoint, entrevista, { headers: this.cabeceras});
+    return this.http.post<Entrevista>(this.baseEndpoint, entrevista, {headers: this.cabeceras});
   }
 
   public editar(entrevista:Entrevista): Observable<Entrevista>{
