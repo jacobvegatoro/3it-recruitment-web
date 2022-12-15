@@ -21,19 +21,21 @@ export class EntrevistaService {
     const params = new HttpParams()
     .set('page', page)
     .set('size', size);
-    return this.http.get<any>(`${this.baseEndpoint}/pagina`, {params: params})
+    return this.http.get<any>(`${this.baseEndpoint}/pagina`, {params: params});
   }
 
-  public ver(id: number): Observable<Entrevista>{
+  public ver(id: number): Observable<Entrevista> {
     return this.http.get<Entrevista>(`${this.baseEndpoint}/${id}`);
   }
 
   public crear(entrevista:Entrevista): Observable<Entrevista>{
-    return this.http.post<Entrevista>(this.baseEndpoint, entrevista, {headers: this.cabeceras});
+    return this.http.post<Entrevista>(this.baseEndpoint, entrevista, 
+      { headers: this.cabeceras });
   }
 
   public editar(entrevista:Entrevista): Observable<Entrevista>{
-    return this.http.put<Entrevista>(`${this.baseEndpoint}/${entrevista.id}`, entrevista, {headers: this.cabeceras})
+    return this.http.put<Entrevista>(`${this.baseEndpoint}/${entrevista.id}`, entrevista, 
+    { headers: this.cabeceras });
   }
 
   public eliminar(id: number): Observable<void>{

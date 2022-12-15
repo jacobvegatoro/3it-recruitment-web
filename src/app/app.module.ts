@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { EntrevistasComponent } from './components/entrevistas/entrevistas.component';
 import { LayoutModule } from './layout/layout.module';
 import { EntrevistasFormComponent } from './components/entrevistas/entrevistas-form/entrevistas-form.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -20,7 +21,8 @@ import { EntrevistasFormComponent } from './components/entrevistas/entrevistas-f
         BrowserModule,
         AppRoutingModule,
         LayoutModule,
-        HttpClientModule
+        HttpClientModule,
+        FormsModule
     ]
 })
 export class AppModule { }

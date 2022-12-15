@@ -6,37 +6,43 @@
         <form>
             <div class="form-group">
                 <label for="id">Id</label>
-                <input type="text" name="id" class="form-control">
+                <input type="number" name="id" class="form-control" [(ngModel)]="entrevista.id">
             </div>
             <div class="form-group">
                 <label for="perfilBuscado">Perfil buscado</label>
-                <input type="text" name="perfilBuscado" class="form-control">
+                <input type="text" name="perfilBuscado" class="form-control" [(ngModel)]="entrevista.perfilBuscado">
             </div>
             <div class="form-group">
                 <label for="comentariosPrueba">Comentarios Prueba</label>
-                <input type="text" name="comentariosPrueba" class="form-control">
+                <input type="text" name="comentariosPrueba" class="form-control"
+                    [(ngModel)]="entrevista.comentariosPrueba">
             </div>
             <div class="form-group">
                 <label for="comentariosGenerales">Comentarios Generales</label>
-                <input type="text" name="comentariosGenerales" class="form-control">
+                <input type="text" name="comentariosGenerales" class="form-control"
+                    [(ngModel)]="entrevista.comentariosGenerales">
             </div>
             <div class="form-group">
                 <label for="recomendaciones">Recomendaciones</label>
-                <input type="text" name="recomendaciones" class="form-control">
+                <input type="text" name="recomendaciones" class="form-control" [(ngModel)]="entrevista.recomendaciones">
             </div>
             <div class="form-group">
                 <label for="descripcionPersonal">Descripción Personal</label>
-                <input type="text" name="descripcionPersonal" class="form-control">
+                <input type="text" name="descripcionPersonal" class="form-control"
+                    [(ngModel)]="entrevista.descripcionPersonal">
             </div>
             <div class="form-group">
                 <label for="preguntasCandidato">Preguntas Candidato</label>
-                <input type="text" name="preguntasCandidato" class="form-control">
+                <input type="text" name="preguntasCandidato" class="form-control"
+                    [(ngModel)]="entrevista.preguntasCandidato">
+            </div>
+            <div class="form-group">
+                <label for="createAt">Fecha</label>
+                <input type="text" name="createAt" class="form-control" [(ngModel)]="entrevista.createAt">
             </div>
             <div class="form-group mt-3">
-                <button type="button" class="btn btn-primary">Crear</button>
+                <button type="button" class="btn btn-primary" (click)="crear()">Crear</button>
             </div>
         </form>
-
-
     </div>
 </div>
