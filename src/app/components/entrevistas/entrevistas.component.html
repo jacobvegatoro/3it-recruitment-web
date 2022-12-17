@@ -13,6 +13,7 @@
                     <th>descripcionPersonal</th>
                     <th>preguntasCandidato</th>
                     <th>CreateAt</th>
+                    <th>editar</th>
                 </tr>
             </thead>
             <tbody>
@@ -22,9 +23,13 @@
                     <td>{{entrevista.comentariosPrueba}}</td>
                     <td>{{entrevista.comentariosGenerales}}</td>
                     <td>{{entrevista.recomendaciones}}</td>
-                    <td>{{entrevista.descripcionPersonal}</td>
+                    <td>{{entrevista.descripcionPersonal}}</td>
                     <td>{{entrevista.preguntasCandidato}}</td>
                     <td>{{entrevista.CreateAt | date: 'yyyy/MM/dd'}}</td>
+                    <td><button class="btn btn-secondary btn-sm" 
+                        [routerLink]="['/entrevistas/form', entrevista.id]">
+                        editar
+                    </button></td>
                 </tr>
             </tbody>
         </table>

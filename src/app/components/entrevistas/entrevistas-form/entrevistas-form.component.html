@@ -6,46 +6,71 @@
         <form>
             <div class="form-group">
                 <label for="id">Id</label>
-                <input type="number" name="id" class="form-control" 
-                [(ngModel)]="entrevista.id">
+                <input type="number" name="id" class="form-control" id="id" [(ngModel)]="entrevista.id">
+                <div class="alert alert-danger" role="alert" *ngIf="error?.id">
+                    {{ error.id }}
+                </div>
             </div>
             <div class="form-group">
                 <label for="perfilBuscado">Perfil buscado</label>
-                <input type="text" name="perfilBuscado" class="form-control" 
-                [(ngModel)]="entrevista.perfilBuscado">
+                <input type="text" name="perfilBuscado" class="form-control" id="perfilBuscado"
+                    [(ngModel)]="entrevista.perfilBuscado">
+                <div class="alert alert-danger" role="alert" *ngIf="error?.perfilBuscado">
+                    {{ error.perfilBuscado }}
+                </div>
             </div>
             <div class="form-group">
                 <label for="comentariosPrueba">Comentarios Prueba</label>
-                <input type="text" name="comentariosPrueba" class="form-control"
+                <input type="text" name="comentariosPrueba" class="form-control" id="comentariosPrueba"
                     [(ngModel)]="entrevista.comentariosPrueba">
+                <div class="alert alert-danger" role="alert" *ngIf="error?.comentariosPrueba">
+                    {{ error.comentariosPrueba }}
+                </div>
             </div>
             <div class="form-group">
                 <label for="comentariosGenerales">Comentarios Generales</label>
-                <input type="text" name="comentariosGenerales" class="form-control"
+                <input type="text" name="comentariosGenerales" class="form-control" id="comentariosGenerales"
                     [(ngModel)]="entrevista.comentariosGenerales">
+                <div class="alert alert-danger" role="alert" *ngIf="error?.comentariosGenerales">
+                    {{ error.comentariosGenerales }}
+                </div>
             </div>
             <div class="form-group">
                 <label for="recomendaciones">Recomendaciones</label>
-                <input type="text" name="recomendaciones" class="form-control" 
-                [(ngModel)]="entrevista.recomendaciones">
+                <input type="text" name="recomendaciones" class="form-control" id="recomendaciones"
+                    [(ngModel)]="entrevista.recomendaciones">
+                <div class="alert alert-danger" role="alert" *ngIf="error?.recomendaciones">
+                    {{ error.recomendaciones }}
+                </div>
             </div>
             <div class="form-group">
                 <label for="descripcionPersonal">Descripción Personal</label>
-                <input type="text" name="descripcionPersonal" class="form-control"
+                <input type="text" name="descripcionPersonal" class="form-control" id="descripcionPersonal"
                     [(ngModel)]="entrevista.descripcionPersonal">
+                <div class="alert alert-danger" role="alert" *ngIf="error?.descripcionPersonal">
+                    {{ error.descripcionPersonal }}
+                </div>
             </div>
             <div class="form-group">
                 <label for="preguntasCandidato">Preguntas Candidato</label>
-                <input type="text" name="preguntasCandidato" class="form-control"
+                <input type="text" name="preguntasCandidato" class="form-control" id="preguntasCandidato"
                     [(ngModel)]="entrevista.preguntasCandidato">
+                <div class="alert alert-danger" role="alert" *ngIf="error?.preguntasCandidato">
+                    {{ error.preguntasCandidato }}
+                </div>
             </div>
             <div class="form-group">
                 <label for="createAt">Fecha</label>
-                <input type="text" name="createAt" class="form-control" 
-                [(ngModel)]="entrevista.createAt">
+                <input type="text" name="createAt" class="form-control" id="createAt" [(ngModel)]="entrevista.createAt">
+                <div class="alert alert-danger" role="alert" *ngIf="error?.createAt">
+                    {{ error.createAt }}
+                </div>
             </div>
             <div class="form-group mt-3">
-                <button type="button" class="btn btn-primary" (click)="crear()">Crear</button>
+                <button type="button" class="btn btn-primary" 
+                (click)="entrevista.id? editar(): crear()">
+                {{ entrevista.id? 'Editar': 'Crear' }}
+                </button>
             </div>
         </form>
     </div>

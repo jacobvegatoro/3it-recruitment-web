@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Entrevista } from 'src/app/models/entrevista';
 import { EntrevistaService } from 'src/app/services/entrevista.service';
 
@@ -14,10 +14,19 @@ export class EntrevistasFormComponent implements OnInit {
 
   entrevista: Entrevista = new Entrevista();
 
-  constructor(private service: EntrevistaService,
-              private router: Router) { }
+  error: any;
 
-  ngOnInit(): void {
+  constructor(private service: EntrevistaService,
+    private router: Router,
+    private route: ActivatedRoute) { }
+
+  ngOnInit() {
+    this.route.paramMap.subscribe(params => {
+      const id: number = +params.get('id');
+      if (id) {
+        this.service.ver(id).subscribe(entrevista => this.entrevista = entrevista)
+      }
+    })
   }
 
   public crear(): void {
@@ -25,7 +34,25 @@ export class EntrevistasFormComponent implements OnInit {
       console.log(entrevista);
       alert(`Entrevista ${entrevista.id} creada con éxito`);
       this.router.navigate(['/entrevistas']);
+    }, err => {
+      if (err.status === 400) {
+        this.error = err.error;
+        console.log(this.error);
+      }
     });
   }
 
+  public editar(): void {
+    this.service.editar(this.entrevista).subscribe(entrevista => {
+      console.log(entrevista);
+      alert(`Entrevista ${entrevista.id} actualzada con éxito`);
+      this.router.navigate(['/entrevistas']);
+    }, err => {
+      if (err.status === 400) {
+        this.error = err.error;
+        console.log(this.error);
+      }
+    });
+  }
 }
+

@@ -6,7 +6,8 @@ import { EntrevistasComponent } from './components/entrevistas/entrevistas.compo
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'entrevistas'},
   {path: 'entrevistas', component: EntrevistasComponent},
-  {path: 'entrevistas/form', component: EntrevistasFormComponent}
+  {path: 'entrevistas/form', component: EntrevistasFormComponent},
+  {path: 'entrevistas/form/:id', component: EntrevistasFormComponent}
 ];
 
 @NgModule({
