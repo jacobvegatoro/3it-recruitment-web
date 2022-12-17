@@ -12,8 +12,9 @@
                     <th>recomendaciones</th>
                     <th>descripcionPersonal</th>
                     <th>preguntasCandidato</th>
-                    <th>CreateAt</th>
+                    <th>Fecha</th>
                     <th>editar</th>
+                    <th>eliminar</th>
                 </tr>
             </thead>
             <tbody>
@@ -29,6 +30,10 @@
                     <td><button class="btn btn-secondary btn-sm" 
                         [routerLink]="['/entrevistas/form', entrevista.id]">
                         editar
+                    </button></td>
+                    <td><button class="btn btn-danger btn-sm"
+                        (click)="eliminar(entrevista)">
+                        eliminar
                     </button></td>
                 </tr>
             </tbody>

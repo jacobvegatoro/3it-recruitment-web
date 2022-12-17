@@ -20,4 +20,13 @@ export class EntrevistasComponent implements OnInit {
     });
   }
 
+  public eliminar(entrevista: Entrevista): void {
+    if (confirm('Desea eliminar a ${entrevista.id} ?')) {
+      this.service.eliminar(entrevista.id).subscribe(() => {
+        this.entrevistas = this.entrevistas.filter(a => a !== entrevista);
+        alert(`Entrevista ${entrevista.id} eliminada con éxito`)
+      });
+    }
+  }
+
 }
