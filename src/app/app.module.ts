@@ -8,12 +8,16 @@ import { EntrevistasComponent } from './components/entrevistas/entrevistas.compo
 import { LayoutModule } from './layout/layout.module';
 import { EntrevistasFormComponent } from './components/entrevistas/entrevistas-form/entrevistas-form.component';
 import { FormsModule } from '@angular/forms';
+import { PreguntasComponent } from './components/preguntas/preguntas.component';
+import { PreguntasFormComponent } from './components/preguntas/preguntas-form.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         EntrevistasComponent,
-        EntrevistasFormComponent
+        EntrevistasFormComponent,
+        PreguntasComponent,
+        PreguntasFormComponent
     ],
     providers: [],
     bootstrap: [AppComponent],
