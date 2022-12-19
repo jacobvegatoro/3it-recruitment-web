@@ -10,12 +10,14 @@ export class EntrevistaService {
 
   private baseEndpoint = 'http://localhost:8090/api/entrevistas';
   
-  //private cabeceras: HttpHeaders = new HttpHeaders({'Content-Type': 'application/jason'});
-  protected cabeceras: HttpHeaders = new HttpHeaders()
+  private cabeceras: HttpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
+
+  /*private cabeceras: HttpHeaders = new HttpHeaders()
     .set('Content-Type','application/json')
     .set('Access-Control-Allow-Origin', '*')
     .set('Access-Control-Allow-Headers', '*')
-    .set('Access-Control-Allow-Methods', 'GET,POST,OPTIONS,DELETE,PUT')
+    .set('Access-Control-Allow-Methods', 'GET,POST,OPTIONS,DELETE,PUT')*/
+
   constructor(private http: HttpClient) { }
 
   public listar(): Observable<Entrevista[]> {
