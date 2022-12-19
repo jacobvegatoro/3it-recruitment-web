@@ -9,6 +9,7 @@ const routes: Routes = [
   {path:'entrevistas', component: EntrevistasComponent},
   {path:'preguntas', component: PreguntasComponent},
   {path:'preguntas/form', component: PreguntasFormComponent},
+  {path:'preguntas/form/:id', component: PreguntasFormComponent},
   {path:'**', pathMatch: 'full', redirectTo: 'preguntas'},
 ];
 //preguntas/form

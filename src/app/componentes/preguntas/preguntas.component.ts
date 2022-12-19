@@ -15,8 +15,19 @@ export class PreguntasComponent implements OnInit {
   constructor(private service: PreguntaService) { }
 
   ngOnInit(): void {
-    this.service.listar().subscribe(preguntas => this.preguntas=preguntas);
+    this.service.listar().subscribe(preguntas => this.preguntas = preguntas);
+  }
 
+  /**
+   * eliminar:
+   */
+  public eliminar(pregunta: Pregunta): void {
+    if (confirm(`¿Seguro?`)) {
+      this.service.eliminar(pregunta.id).subscribe(() => {
+        this.preguntas = this.preguntas.filter(p => p !== pregunta);
+        alert(`Pregunta ${pregunta.id}:${pregunta.detalle} eliminada.`);
+      })
+    }
   }
 
 }

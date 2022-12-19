@@ -11,13 +11,17 @@ import { Pregunta } from '../models/pregunta';
 export class PreguntaService {
 
   private baseEndpoint = 'http://localhost:8090/api/preguntas';
-  
-  private cabeceras: HttpHeaders = new HttpHeaders({'Content-Type': 'application/jason'});
-  
+
+  private cabeceras: HttpHeaders = new HttpHeaders(
+    {'Content-Type': 'application/json'});
+  /*.set('Content-Type','application/json')
+  .set('Access-Control-Allow-Origin', '*')
+  .set('Access-Control-Allow-Headers', '*')
+  .set('Access-Control-Allow-Methods', 'GET,POST,OPTIONS,DELETE,PUT')*/
+
   constructor(private http: HttpClient) { }
 
   public listar(): Observable<Pregunta[]> {
-    //return this.http.get<Pregunta[]>(this.baseEndpoint);
     return this.http.get(this.baseEndpoint).pipe(
       map(preguntas => {
         return preguntas as Pregunta[];
@@ -26,24 +30,28 @@ export class PreguntaService {
 
   public listarPaginas(page: string, size: string): Observable<any> {
     const params = new HttpParams()
-    .set('page',page)
-    .set('size',size);
-    return this.http.get<any>(`${this.baseEndpoint}/pagina`, {params: params})
+      .set('page', page)
+      .set('size', size);
+    return this.http.get<any>(`${this.baseEndpoint}/pagina`, { params: params })
   }
 
-  public ver(id: number): Observable<Pregunta>{ 
+  public ver(id: number): Observable<Pregunta> {
     return this.http.get<Pregunta>(`${this.baseEndpoint}/${id}`);
   }
 
-  public crear(pregunta:Pregunta): Observable<Pregunta>{
-    return this.http.post<Pregunta>(this.baseEndpoint, pregunta, { headers: this.cabeceras});
+  public crear(pregunta: Pregunta): Observable<Pregunta> {
+    return this.http.post<Pregunta>(
+      this.baseEndpoint,
+      pregunta,
+      { headers: this.cabeceras }
+    );
   }
 
-  public editar(pregunta:Pregunta): Observable<Pregunta>{
-    return this.http.put<Pregunta>(`${this.baseEndpoint}/${pregunta.id}`, pregunta, {headers: this.cabeceras})
+  public editar(pregunta: Pregunta): Observable<Pregunta> {
+    return this.http.put<Pregunta>(`${this.baseEndpoint}/${pregunta.id}`, pregunta, { headers: this.cabeceras })
   }
 
-  public eliminar(id: number): Observable<void>{
+  public eliminar(id: number): Observable<void> {
     return this.http.delete<void>(`${this.baseEndpoint}/${id}`);
   }
 
